@@ -1,0 +1,69 @@
+type UserId = principal;
+type Timestamp = int;
+type Review = 
+ record {
+   date: Timestamp;
+   productId: nat;
+   rating: nat;
+   "text": text;
+   userId: UserId;
+ };
+type Product = 
+ record {
+   category: text;
+   description: text;
+   discountPercent: nat;
+   id: nat;
+   images: vec text;
+   inStock: bool;
+   originalPrice: nat;
+   price: nat;
+   rating: nat;
+   reviewCount: nat;
+   sellerId: text;
+   specs: vec record {
+                text;
+                text;
+              };
+   tags: vec text;
+   title: text;
+ };
+type OrderItem = 
+ record {
+   price: nat;
+   productId: nat;
+   quantity: nat;
+ };
+type Order = 
+ record {
+   createdAt: Timestamp;
+   id: nat;
+   items: vec OrderItem;
+   status: text;
+   total: nat;
+ };
+type CartItem = 
+ record {
+   productId: nat;
+   quantity: nat;
+ };
+service : {
+  addReview: (productId: nat, rating: nat, reviewText: text) -> ();
+  addToCart: (productId: nat, quantity: nat) -> ();
+  addToWishlist: (productId: nat) -> ();
+  clearCart: () -> ();
+  getCart: () -> (vec CartItem);
+  getCategories: () -> (vec text) query;
+  getOrderById: (id: nat) -> (opt Order) query;
+  getOrders: () -> (vec Order);
+  getProductById: (id: nat) -> (opt Product) query;
+  getProducts: () -> (vec Product) query;
+  getProductsByCategory: (category: text) -> (vec Product) query;
+  getReviews: (productId: nat) -> (vec Review) query;
+  getWishlist: () -> (vec nat);
+  placeOrder: () -> (nat);
+  removeFromCart: (productId: nat) -> ();
+  removeFromWishlist: (productId: nat) -> ();
+  searchProducts: (searchQuery: text) -> (vec Product) query;
+  updateCartQuantity: (productId: nat, quantity: nat) -> ();
+}

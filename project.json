@@ -1,0 +1,23 @@
+{
+  "overview": "A mobile-first e-commerce marketplace app inspired by Daraz, featuring a full shopping experience with product listings, categories, cart, and user accounts.",
+  "features": [
+    "Home screen with banner carousel and category grid",
+    "Browse products by category with search and filters",
+    "Product detail pages with image gallery, ratings, and reviews",
+    "Shopping cart with quantity controls and order summary",
+    "User login via Internet Identity",
+    "Order history and account profile",
+    "Bottom tab navigation optimized for mobile",
+    "Orange-themed Daraz-inspired design"
+  ],
+  "category": "e-commerce",
+  "tags": [
+    "ecommerce",
+    "marketplace",
+    "mobile",
+    "shopping",
+    "daraz",
+    "catalog"
+  ],
+  "last_updated": "2026-04-25T02:02:03.562Z"
+}
